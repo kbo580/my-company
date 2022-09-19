@@ -45,25 +45,399 @@ header,main,section,footer, div, ul, li, h1,h2,h3,dl,dt,dd
 
 .inner{
   margin: 0 auto;
-  max-width: px;
+  max-width: 1080px;
   width: 100%;
-  background-color: rgba(241,92,168,0.2);
-  padding: 0 4%;
+  // border: 1px dashed #000;
+  padding: 0 15px;
 }
 
 @font-face {
   font-family: 'ロゴたいぷゴシック';
   src: url('../font/ロゴたいぷゴシック.woff') format('woff');
+  src: url('../font/Corporate-Logo-Bold-ver2_subset.woff') format('woff');
+}
+
+p{
+  // font-family: "ロゴたいぷゴシック";
+  // font-weight: normal;
 }
 
 h2{
-  font-family: "ロゴたいぷゴシック";
+  // font-family: "Corporate-Logo-Bold-ver2";
 }
 
 
 /* -------------------------------------------- */
-/* ▼タブレット用デザインとして付け足すデザイン */
+/* 共通部分 */
 /* -------------------------------------------- */
+section{
+  padding: 60px 0;
+}
+
+/* 見出しの共通部分 */
+.heading-common{
+  font-family: "Corporate-Logo-Bold-ver2";
+  letter-spacing: 0.15em;
+  line-height: 1;
+}
+
+/* セクションの見出し */
+.sec-heading{
+  font-size: rem(70);
+  margin-bottom: 40px;
+}
+
+/* h3クラスの見出し */
+.sub-heading{
+  font-size: rem(24);
+}
+
+/* セクションのリード文 */
+.lead{
+  line-height: 1.5em;
+  letter-spacing: 0.15em;
+  margin-top: 40px;
+  width: 100%;
+}
+
+/* サムネイル */
+.thum{
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* ボタン */
+.btn{
+  display: block;
+  text-align: center;
+  margin-top: 60px;
+  font-weight: bold;
+  font-size: rem(20);
+}
+
+@media (min-width: 765px) {
+
+
+}
+/* -------------------------------------------- */
+/*  */
+/* -------------------------------------------- */
+
+@media (min-width: 765px) {
+
+
+}
+/* -------------------------------------------- */
+/* news */
+/* -------------------------------------------- */
+.news{
+  &__heading{
+    font-size: rem(24);
+  }
+}
+
+@media (min-width: 765px) {
+
+
+}
+
+/* -------------------------------------------- */
+/*  */
+/* -------------------------------------------- */
+
+@media (min-width: 765px) {
+
+
+}
+
+/* -------------------------------------------- */
+/* service */
+/* -------------------------------------------- */
+.service{
+  &__title{
+    font-size: rem(28);
+    line-height: 1.5;
+  }
+
+  &__title--num{
+    font-size: rem(56);
+    display: block;
+    line-height: 1;
+  }
+
+  &__list{
+    border: 1px solid #000;
+    margin-top: 40px;
+  }
+
+  &__list-item{
+    border: 1px solid #000;
+    position: relative;
+
+    /* 先頭以外 */
+    &:not(:first-child){
+      margin-top: 40px;
+    }
+
+    &::after{
+      content: "+";
+      font-size: 24px;
+      text-align: center;
+      line-height: 24px;
+      position: absolute;
+      display: block;
+      right: 0;
+      bottom: 0;
+      border: 2px solid #000;
+      background-color: #fff;
+      width: 30px;
+      height: 30px;
+      border-radius: 50%;
+      cursor: pointer;
+    }
+  }
+}
+
+@media (min-width: 765px) {
+
+
+}
+
+/* -------------------------------------------- */
+/* works */
+/* -------------------------------------------- */
+.works{
+
+  &__sub-heading{
+    text-align: center;
+  }
+
+  &__body{
+    margin-top: 40px;
+  }
+
+  /* リスト */
+  &__list{
+
+    &-item{
+      border: 1px solid #000;
+      width: 100%;
+    }
+
+    /* サムネ */
+    &-image-wrapper{
+      position: relative;
+      display: block;
+      width: 100%;
+      height: 100%;
+      
+      /* マスク */
+      &::before{
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 0, 0, .7);
+        display: block;
+        position: absolute;
+        top: 0;
+        left: 0;
+        // display: none;
+      }
+    }
+
+    &-image{
+      aspect-ratio: 4 / 3;
+    }
+    
+    /* 説明 */
+    &-body{
+      // display: none;
+      position: absolute;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      text-align: center;
+      color: #ffffff;
+    }
+  }
+
+  /* 作品のタイトル*/
+  &__title{
+    font-size: rem(16);
+  }
+
+  /* 作品の説明 */
+  &__desc{
+    margin-top: 20px;
+  }
+}
+
+@media (min-width: 765px) {
+
+
+}
+/* -------------------------------------------- */
+/* flow */
+/* -------------------------------------------- */
+
+.flow{
+  /* リストの見出し */
+  &__sub-heading{
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+
+    /* すうじ */
+    &--num{
+      font-size: rem(40);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-right: 10px;
+      
+      /* stepの文字 */
+      &::before{
+        content: "step";
+        font-size: rem(16);
+      }
+    }
+  }
+
+  &__body{
+    margin-top: 40px;
+  }
+}
+
+/* リスト */
+.flow__list{
+
+  /* 画像 */
+  &-image-wrapper{
+    margin-top: 16px;
+  }
+
+  &-image{
+    aspect-ratio: 16 / 9;
+  }
+
+  /* 説明 */
+  &-desc{
+    margin-top: 16px;
+  }
+}
+
+.arrow{
+  text-align: center;
+  padding: 20px 0;
+}
+
+@media (min-width: 765px) {
+
+
+}
+
+/* -------------------------------------------- */
+/* about */
+/* -------------------------------------------- */
+.about{
+  &__wrapper{
+    border: 1px solid #000;
+  }
+
+  &__image-wrapper{
+
+  }
+
+  &__desc{
+    margin-top: 40px;
+  }
+}
+
+@media (min-width: 765px) {
+
+
+}
+
+/* -------------------------------------------- */
+/* blog */
+/* -------------------------------------------- */
+.blog{
+
+  &__wrapper{
+
+  }
+
+  &-title{
+    font-size: rem(14);
+  }
+
+  /* カテゴリー */
+  &__cat{
+    font-size: rem(12);
+    display: inline-block;
+    background-color: #ccc;
+    padding: 8px 12px;
+    border-radius: 6px;
+    margin-right: 10px;
+  }
+
+  /* 投稿日 */
+  &__posted{
+    font-size: rem(14);
+  }
+}
+
+/* ブログのリスト */
+.blog__list{
+  // border: 1px solid #000;
+  display: flex;
+  flex-direction: column;
+  padding: 0 22px;
+
+  /* 最初の要素以外 */
+  &:not(:first-child){
+    margin-top: 40px;
+  }
+
+  /* ブログタイトル */
+  &-title{
+    padding: 16px 0;
+    order: 1;
+  }
+
+  /* ブログサムネイル */
+  &-item{
+  }
+
+  &-image{
+    aspect-ratio: 16 / 9;
+  }
+  
+ /* ブログ情報 */
+  &-info{
+    order: 2;
+  }
+}
+
+@media (min-width: 765px) {
+
+
+}
+
+/* -------------------------------------------- */
+/*  */
+/* -------------------------------------------- */
+
+@media (min-width: 765px) {
+
+
+}
+
+/* -------------------------------------------- */
+/*  */
+/* -------------------------------------------- */
+
 @media (min-width: 765px) {
 
 

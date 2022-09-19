@@ -37,20 +37,307 @@ header, main, section, footer, div, ul, li, h1, h2, h3, dl, dt, dd {
 
 .inner {
   margin: 0 auto;
-  max-width: px;
+  max-width: 1080px;
   width: 100%;
-  background-color: rgba(241, 92, 168, 0.2);
-  padding: 0 4%;
+  padding: 0 15px;
 }
 
 @font-face {
   font-family: "ロゴたいぷゴシック";
   src: url("../font/ロゴたいぷゴシック.woff") format("woff");
+  src: url("../font/Corporate-Logo-Bold-ver2_subset.woff") format("woff");
 }
-h2 {
-  font-family: "ロゴたいぷゴシック";
+/* -------------------------------------------- */
+/* 共通部分 */
+/* -------------------------------------------- */
+section {
+  padding: 60px 0;
+}
+
+/* 見出しの共通部分 */
+.heading-common {
+  font-family: "Corporate-Logo-Bold-ver2";
+  letter-spacing: 0.15em;
+  line-height: 1;
+}
+
+/* セクションの見出し */
+.sec-heading {
+  font-size: 4.375rem;
+  margin-bottom: 40px;
+}
+
+/* h3クラスの見出し */
+.sub-heading {
+  font-size: 1.5rem;
+}
+
+/* セクションのリード文 */
+.lead {
+  line-height: 1.5em;
+  letter-spacing: 0.15em;
+  margin-top: 40px;
+  width: 100%;
+}
+
+/* サムネイル */
+.thum {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+/* ボタン */
+.btn {
+  display: block;
+  text-align: center;
+  margin-top: 60px;
+  font-weight: bold;
+  font-size: 1.25rem;
 }
 
 /* -------------------------------------------- */
-/* ▼タブレット用デザインとして付け足すデザイン */
+/*  */
+/* -------------------------------------------- */
+/* -------------------------------------------- */
+/* news */
+/* -------------------------------------------- */
+.news__heading {
+  font-size: 1.5rem;
+}
+
+/* -------------------------------------------- */
+/*  */
+/* -------------------------------------------- */
+/* -------------------------------------------- */
+/* service */
+/* -------------------------------------------- */
+.service__title {
+  font-size: 1.75rem;
+  line-height: 1.5;
+}
+.service__title--num {
+  font-size: 3.5rem;
+  display: block;
+  line-height: 1;
+}
+.service__list {
+  border: 1px solid #000;
+  margin-top: 40px;
+}
+.service__list-item {
+  border: 1px solid #000;
+  position: relative;
+  /* 先頭以外 */
+}
+.service__list-item:not(:first-child) {
+  margin-top: 40px;
+}
+.service__list-item::after {
+  content: "+";
+  font-size: 24px;
+  text-align: center;
+  line-height: 24px;
+  position: absolute;
+  display: block;
+  right: 0;
+  bottom: 0;
+  border: 2px solid #000;
+  background-color: #fff;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  cursor: pointer;
+}
+
+/* -------------------------------------------- */
+/* works */
+/* -------------------------------------------- */
+.works {
+  /* リスト */
+  /* 作品のタイトル*/
+  /* 作品の説明 */
+}
+.works__sub-heading {
+  text-align: center;
+}
+.works__body {
+  margin-top: 40px;
+}
+.works__list {
+  /* サムネ */
+  /* 説明 */
+}
+.works__list-item {
+  border: 1px solid #000;
+  width: 100%;
+}
+.works__list-image-wrapper {
+  position: relative;
+  display: block;
+  width: 100%;
+  height: 100%;
+  /* マスク */
+}
+.works__list-image-wrapper::before {
+  content: "";
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.7);
+  display: block;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+.works__list-image {
+  aspect-ratio: 4/3;
+}
+.works__list-body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  text-align: center;
+  color: #ffffff;
+}
+.works__title {
+  font-size: 1rem;
+}
+.works__desc {
+  margin-top: 20px;
+}
+
+/* -------------------------------------------- */
+/* flow */
+/* -------------------------------------------- */
+.flow {
+  /* リストの見出し */
+}
+.flow__sub-heading {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  /* すうじ */
+}
+.flow__sub-heading--num {
+  font-size: 2.5rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 10px;
+  /* stepの文字 */
+}
+.flow__sub-heading--num::before {
+  content: "step";
+  font-size: 1rem;
+}
+.flow__body {
+  margin-top: 40px;
+}
+
+/* リスト */
+.flow__list {
+  /* 画像 */
+  /* 説明 */
+}
+.flow__list-image-wrapper {
+  margin-top: 16px;
+}
+.flow__list-image {
+  aspect-ratio: 16/9;
+}
+.flow__list-desc {
+  margin-top: 16px;
+}
+
+.arrow {
+  text-align: center;
+  padding: 20px 0;
+}
+
+/* -------------------------------------------- */
+/* about */
+/* -------------------------------------------- */
+.about__wrapper {
+  border: 1px solid #000;
+}
+.about__desc {
+  margin-top: 40px;
+}
+
+/* -------------------------------------------- */
+/* blog */
+/* -------------------------------------------- */
+.blog {
+  /* カテゴリー */
+  /* 投稿日 */
+}
+.blog-title {
+  font-size: 0.875rem;
+}
+.blog__cat {
+  font-size: 0.75rem;
+  display: inline-block;
+  background-color: #ccc;
+  padding: 8px 12px;
+  border-radius: 6px;
+  margin-right: 10px;
+}
+.blog__posted {
+  font-size: 0.875rem;
+}
+
+/* ブログのリスト */
+.blog__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  padding: 0 22px;
+  /* 最初の要素以外 */
+  /* ブログタイトル */
+  /* ブログサムネイル */
+  /* ブログ情報 */
+}
+.blog__list:not(:first-child) {
+  margin-top: 40px;
+}
+.blog__list-title {
+  padding: 16px 0;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
+}
+.blog__list-image {
+  aspect-ratio: 16/9;
+}
+.blog__list-info {
+  -webkit-box-ordinal-group: 3;
+      -ms-flex-order: 2;
+          order: 2;
+}
+
+/* -------------------------------------------- */
+/*  */
+/* -------------------------------------------- */
+/* -------------------------------------------- */
+/*  */
 /* -------------------------------------------- */
