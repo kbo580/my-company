@@ -41,7 +41,7 @@ header,main,section,footer, div, ul, li, h1,h2,h3,dl,dt,dd
   max-width: 1080px;
   width: 100%;
   // border: 1px dashed #000;
-  // padding: 0 15px;
+  padding: 0 15px;
 }
 
 @font-face {
@@ -428,9 +428,6 @@ section:nth-child(even) .sec-heading{
 }
 
 
-
-
-
 @media (min-width: 765px) {
   .service{
 
@@ -620,6 +617,7 @@ section:nth-child(even) .sec-heading{
 /* -------------------------------------------- */
 
 .flow{
+
   /* リストの見出し */
   &__sub-heading{
     display: flex;
@@ -632,7 +630,7 @@ section:nth-child(even) .sec-heading{
       display: flex;
       flex-direction: column;
       align-items: center;
-      margin-right: 10px;
+      margin-right: 8px;
       
       /* stepの文字 */
       &::before{
@@ -644,22 +642,25 @@ section:nth-child(even) .sec-heading{
 
   /* フローリスト全体のコンテナ */
   &__body{
-    // margin-top: 40px;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    position: relative;
   }
 }
 
 /* リスト */
 .flow__list{
   width: 100%;
-  border: 1px solid #000;
+  margin-top: 40px;
 
   /* 画像 */
   &-image-wrapper{
     margin-top: 16px;
-  }
 
-  &-image{
-    aspect-ratio: 16 / 9;
+    img{
+      width: 100%;
+    }
   }
 
   /* 説明 */
@@ -668,11 +669,20 @@ section:nth-child(even) .sec-heading{
   }
 }
 
-/* 矢印 */
-.arrow{
-  text-align: center;
-  display: block;
-  padding: 20px 0;
+.flow__list_6{
+  display: none;
+}
+
+/* タブレット用 */
+@media (min-width: 576px){
+  .flow__list{
+    width: calc((100% - 30px) /2);
+
+    &:nth-child(odd){
+      margin-right: 30px;
+    }
+  }
+
 }
 
 @media (min-width: 765px) {
@@ -680,39 +690,71 @@ section:nth-child(even) .sec-heading{
     
     /* フローリスト全体のコンテナ */
     &__body{
-      display: flex;
       justify-content: space-between;
+
+      /* 背景の棒 */
+      &::before,
+      &::after{
+        content: "";
+        background-color: #fff;
+        // background: linear-gradient(to right, rgb(255, 255, 255) 0% 20%, rgb(0, 0, 0));
+        width: 100%;
+        height: 90px;
+        display: block;
+        position: absolute;
+        z-index: -1;
+      }
+
+      /* 上の棒 */
+      &::before{
+        top: 30%;
+        transform: rotate( 25deg);
+      }
+    
+      /* 下の棒 */
+      &::after{
+        top: 63%;
+        transform: rotate(-35deg);
+      }
     }
   }
 
   /* リスト */
   .flow__list{
     width: calc((100% - 120px) /3);
-
-    /* 画像 */
-    &-image-wrapper{
-      margin-top: 16px;
-    }
-
-    &-image{
-      aspect-ratio: 16 / 9;
-    }
-
-    /* 説明 */
-    &-desc{
-      margin-top: 16px;
+    &:nth-child(odd){
+      margin-right: 0px;
     }
   }
 
-  /* 矢印 */
-  .arrow{
-    align-self: center;
-    // padding: 20px 0;
+  /* リストの個別調整用 */
+  $flowMargin: 160px;
+  .flow__list{
+    &_1{
 
-    /* 暫定。後で変更 */
-    // transform: rotate(-90deg);
+    }
+    &_2{
+      padding-top: $flowMargin;
+    }
+
+    &_3{
+      padding-top: calc($flowMargin * 2);
+    }
+
+    &_4{
+      order: 1;
+      margin-top: -130px;
+    }
+
+    &_5{
+      margin-top: 50px;
+    }
+
+    &_6{
+      order: 1;
+      display: block;
+    }
   }
-
 }
 
 /* -------------------------------------------- */
@@ -864,6 +906,5 @@ section:nth-child(even) .sec-heading{
 @media (min-width: 765px) {
 
 
+
 }
-
-
