@@ -1,9 +1,21 @@
 $(function(){
   $(".service__title-wrap").click(function(){
-    // $(".service__title-wrap .a").click(function(){
-    $(this).next(".service__detail").slideToggle();
-    $(this).children(".a").text('-');
+    $('.service__detail').slideUp();
+    var detail = $(this).next('.service__detail');
+
+    if($(this).hasClass('acc')){
+      $(this).removeClass("acc");
+      $(this).children(".a").text('+');
+    }
+    else{
+      $('.acc').removeClass('acc');
+      $(this).addClass("acc");
+      $(this).children(".a").text('-');
+      detail.slideDown();
+    }
   });
+
+
 
   $(".service__title-wrap").hover(function(){
     // var src= $(this).find(".service-bg-date").value("src");
