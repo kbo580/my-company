@@ -390,6 +390,10 @@ section:nth-child(even) {
 /* -------------------------------------------- */
 /* works */
 /* -------------------------------------------- */
+.swiper {
+  max-width: 1080px;
+}
+
 .works {
   /* 小見出し */
   /* コンテンツ */
@@ -496,13 +500,31 @@ section:nth-child(even) {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
             justify-content: space-between;
-    padding: 0 36px;
     /* リストのアイテム*/
   }
   .works__list-item {
     width: calc((100% - 40px) / 3);
   }
 }
+.swiper {
+  width: 100%;
+  margin: 40px 0;
+  padding: 0 60px 45px;
+}
+
+.swiper-slide {
+  overflow: hidden;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+.swiper-slide-active {
+  opacity: 1;
+  z-index: 1;
+  -webkit-transform: scale(1.4);
+          transform: scale(1.4); /* スライドの大きさ調整 */
+}
+
 /* -------------------------------------------- */
 /* flow */
 /* -------------------------------------------- */
@@ -556,7 +578,6 @@ section:nth-child(even) {
 /* リスト */
 .flow__list {
   width: 100%;
-  margin-top: 40px;
   /* 画像 */
   /* 説明 */
 }
@@ -597,22 +618,30 @@ section:nth-child(even) {
   }
   .flow__body::before, .flow__body::after {
     content: "";
-    background-color: #fff;
     width: 100%;
     height: 90px;
     display: block;
     position: absolute;
     z-index: -1;
+    background: -webkit-gradient(linear, left top, right top, from(#ddd), color-stop(25%, #fff), color-stop(50%, #ddd), color-stop(75%, #fff));
+    background: linear-gradient(to right, #ddd 0% 25%, #fff 25% 50%, #ddd 50% 75%, #fff 75% 100%);
+    background-size: 10% 100%;
+    -webkit-animation: bggradientright 50s linear infinite;
+            animation: bggradientright 50s linear infinite;
   }
   .flow__body::before {
-    top: 30%;
-    -webkit-transform: rotate(25deg);
-            transform: rotate(25deg);
+    top: 26%;
+    -webkit-transform: rotate(26deg);
+            transform: rotate(26deg);
+    -webkit-animation-name: bggradientright;
+            animation-name: bggradientright;
   }
   .flow__body::after {
     top: 63%;
     -webkit-transform: rotate(-35deg);
             transform: rotate(-35deg);
+    -webkit-animation-name: bggradientleft;
+            animation-name: bggradientleft;
   }
   /* リスト */
   .flow__list {
@@ -750,7 +779,7 @@ section:nth-child(even) {
     -webkit-box-direction: normal;
         -ms-flex-direction: column;
             flex-direction: column;
-    width: calc((100% - 180px) / 3);
+    width: calc((100% - 120px) / 3);
     /* 最初の要素以外 */
     /* ブログサムネイル */
     /* ブログ情報 */
@@ -773,3 +802,35 @@ section:nth-child(even) {
 /* -------------------------------------------- */
 /*  */
 /* -------------------------------------------- */
+@-webkit-keyframes bggradientright {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+@keyframes bggradientright {
+  0% {
+    background-position: 0% 50%;
+  }
+  100% {
+    background-position: 100% 50%;
+  }
+}
+@-webkit-keyframes bggradientleft {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}
+@keyframes bggradientleft {
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position: 0% 50%;
+  }
+}

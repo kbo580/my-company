@@ -493,6 +493,9 @@ section:nth-child(even) .sec-heading{
 /* -------------------------------------------- */
 /* works */
 /* -------------------------------------------- */
+.swiper{
+  max-width: 1080px;
+}
 .works{
 
   /* 小見出し */
@@ -602,7 +605,6 @@ section:nth-child(even) .sec-heading{
     &__list{
       display: flex;
       justify-content: space-between;
-      padding: 0 36px;
 
       /* リストのアイテム*/
       &-item{
@@ -611,6 +613,23 @@ section:nth-child(even) .sec-heading{
     }
   }
 
+}
+
+.swiper {
+  width: 100%;
+  margin: 40px 0;
+  padding: 0 60px 45px;
+}
+
+.swiper-slide {
+  overflow: hidden;
+  transition: .8s;
+}
+
+.swiper-slide-active{
+  opacity: 1;
+  z-index: 1;
+  transform: scale(1.4); /* スライドの大きさ調整 */
 }
 /* -------------------------------------------- */
 /* flow */
@@ -652,7 +671,6 @@ section:nth-child(even) .sec-heading{
 /* リスト */
 .flow__list{
   width: 100%;
-  margin-top: 40px;
 
   /* 画像 */
   &-image-wrapper{
@@ -692,29 +710,34 @@ section:nth-child(even) .sec-heading{
     &__body{
       justify-content: space-between;
 
+      $firstColor: #ddd;
+      $secondColor: #fff;
       /* 背景の棒 */
       &::before,
       &::after{
         content: "";
-        background-color: #fff;
-        // background: linear-gradient(to right, rgb(255, 255, 255) 0% 20%, rgb(0, 0, 0));
         width: 100%;
         height: 90px;
         display: block;
         position: absolute;
         z-index: -1;
+        background: linear-gradient(to right, $firstColor 0% 25%, $secondColor 25% 50%, $firstColor 50% 75%,$secondColor 75% 100%);
+        background-size: 10% 100%;
+        animation: bggradientright 50s linear infinite;
       }
 
       /* 上の棒 */
       &::before{
-        top: 30%;
-        transform: rotate( 25deg);
+        top: 26%;
+        transform: rotate( 26deg);
+        animation-name: bggradientright;
       }
-    
+      
       /* 下の棒 */
       &::after{
         top: 63%;
         transform: rotate(-35deg);
+        animation-name: bggradientleft;
       }
     }
   }
@@ -868,7 +891,7 @@ section:nth-child(even) .sec-heading{
   .blog__list{
     display: flex;
     flex-direction: column;
-    width: calc((100% - 180px) /3);
+    width: calc((100% - 120px) /3);
 
     /* 最初の要素以外 */
     &:not(:first-child){
@@ -907,4 +930,24 @@ section:nth-child(even) .sec-heading{
 
 
 
+}
+
+@keyframes bggradientright{
+	0% {
+		background-position: 0% 50%;
+	}
+	100% {
+		background-position: 100% 50%;
+	}
+
+}
+
+@keyframes bggradientleft{
+
+  0% {
+    background-position: 100% 50%;
+  }
+  100% {
+    background-position:  0% 50%;
+  }
 }
