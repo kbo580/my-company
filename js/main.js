@@ -1,19 +1,19 @@
 $(function(){
-  $(".service__title-wrap").click(function(){
-    $('.service__detail').slideUp();
-    var detail = $(this).next('.service__detail');
+  // $(".service__title-wrap").click(function(){
+  //   $('.service__detail').slideUp();
+  //   var detail = $(this).next('.service__detail');
 
-    if($(this).hasClass('acc')){
-      $(this).removeClass("acc");
-      $(this).children(".a").text('+');
-    }
-    else{
-      $('.acc').removeClass('acc');
-      $(this).addClass("acc");
-      $(this).children(".a").text('-');
-      detail.slideDown();
-    }
-  });
+  //   if($(this).hasClass('acc')){
+  //     $(this).removeClass("acc");
+  //     $(this).children(".a").text('+');
+  //   }
+  //   else{
+  //     $('.acc').removeClass('acc');
+  //     $(this).addClass("acc");
+  //     $(this).children(".a").text('-');
+  //     detail.slideDown();
+  //   }
+  // });
 
 
 

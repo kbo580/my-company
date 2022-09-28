@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@8/swiper-bundle.min.css"/>
+  <link rel="stylesheet" href="css/swiper.css">
   <link rel="stylesheet" href="css/styles.css">
   <link rel="stylesheet" href="css/styles.scss">
   <link rel="stylesheet" href="https://use.fontawesome.com/releases/v6.1.1/css/all.css">
@@ -109,24 +110,24 @@
   
                 <ul class="service__webdesighn-list service__detail-list--common">
 
-                  <li class="service__webdesighn-list-item">
+                  <li class="service__webdesighn-list-item service-col-3">
                     <ul>
                       <li><img src="images/400x300.png" alt=""></li>
-                      <li class="service__webdesighn-list-desc">ランディングページ</li>
+                      <li class="service-list-desc service__webdesighn-list-desc">ランディングページ</li>
                     </ul>
                   </li>
   
-                  <li class="service__webdesighn-list-item">
+                  <li class="service__webdesighn-list-item service-col-3">
                     <ul>
                       <li><img src="images/400x300.png" alt=""></li>
-                      <li class="service__webdesighn-list-desc">ECサイト作成</li>
+                      <li class="service-list-desc service__webdesighn-list-desc">ECサイト作成</li>
                     </ul>
                   </li>
   
-                  <li class="service__webdesighn-list-item">
+                  <li class="service__webdesighn-list-item service-col-3">
                     <ul>
                       <li><img src="images/400x300.png" alt=""></li>
-                      <li class="service__webdesighn-list-desc">CMS構築</li>
+                      <li class="service-list-desc service__webdesighn-list-desc">CMS構築</li>
                     </ul>
                   </li>
   
@@ -191,24 +192,24 @@
   
                 <ul class="service__cording-list service__detail-list--common">
 
-                  <li class="service__cording-list-item">
+                  <li class="service__cording-list-item service-col-3">
                     <ul>
                       <li><img src="images/400x300.png" alt=""></li>
-                      <li class="service__cording-list-desc">お持ちのデザインカンプからコーディング</li>
+                      <li class="service-list-desc service__cording-list-desc">お持ちのデザインカンプからコーディング</li>
                     </ul>
                   </li>
   
-                  <li class="service__cording-list-item">
+                  <li class="service__cording-list-item service-col-3">
                     <ul>
                       <li><img src="images/400x300.png" alt=""></li>
-                      <li class="service__cording-list-desc">Java ScriptやCSSを使用した動き付け</li>
+                      <li class="service-list-desc service__cording-list-desc">Java ScriptやCSSを使用した動き付け</li>
                     </ul>
                   </li>
   
-                  <li class="service__cording-list-item">
+                  <li class="service__cording-list-item service-col-3">
                     <ul>
                       <li><img src="images/400x300.png" alt=""></li>
-                      <li class="service__cording-list-desc">HTMLサイトのWord Pressへの変換</li>
+                      <li class="service-list-desc service__cording-list-desc">HTMLサイトのWord Pressへの変換</li>
                     </ul>
                   </li>
   
@@ -242,11 +243,48 @@
             <!-- サービスの詳細部分 -->
             <div class="service__detail">
 
-              <!-- コーディング代行 -->
-              <article class="service__cording">
-                <h4 class="sub-heading heading-common">コーディング代行</h4>
+              <!-- バナー作成 -->
+              <article class="service__banners">
+                <h4 class="sub-heading heading-common">バナー作成</h4>
   
-                <ul class="service__cording-list service__detail-list--common">
+                <div class="banner-swiper-container">
+
+                  <div class="banner-swiper swiper">
+
+                    <ul class="swiper-wrapper">
+                      
+                      <li class="swiper-slide">
+                        <ul>
+                          <li><img src="images/400x300.png" alt=""></li>
+                          <li class="service-list-desc">お持ちのデザインカンプからコーディング</li>
+                        </ul>
+                      </li>
+  
+                      <li class="swiper-slide">
+                        <ul>
+                          <li><img src="images/400x300.png" alt=""></li>
+                          <li class="service-list-desc">Java ScriptやCSSを使用した動き付け</li>
+                        </ul>
+                      </li>
+  
+                      <li class="swiper-slide">
+                        <ul>
+                          <li><img src="images/400x300.png" alt=""></li>
+                          <li class="service-list-desc">HTMLサイトのWord Pressへの変換</li>
+                        </ul>
+                      </li>
+  
+                      
+                    </ul>
+                  </div>
+                  <!-- /banner-swiper swiper -->
+
+                  <div class="swiper-button-prev"></div>
+                  <div class="swiper-button-next"></div>
+                </div>
+                <!-- /banner-swiper-container -->
+
+                <!-- <ul class="service__cording-list service__detail-list--common">
 
                   <li class="service__cording-list-item">
                     <ul>
@@ -269,9 +307,10 @@
                     </ul>
                   </li>
   
-                </ul>
+                </ul> -->
   
-                <p class="service__detail-desc">コーポレートサイト、イベントサイトや個人店のサイトなど幅広く知識をもったスタッフが適切なサイト作成をご提案させていただきます。SEOの構造を考えながらコーディングできます。</p>
+                <p class="service__detail-desc">Webページ使用するバナーの製作を承っております。
+                  納品はご要望に応じ様々なサイズでお受けいたします。</p>
   
               </article>
               <!-- /コーディング代行 -->
@@ -353,29 +392,29 @@
             <div class="service__detail">
 
               <!-- コーディング代行 -->
-              <article class="service__cording">
-                <h4 class="sub-heading heading-common">コーディング代行</h4>
+              <article class="service__writing">
+                <h4 class="sub-heading heading-common">Webライティング</h4>
   
                 <ul class="service__cording-list service__detail-list--common">
 
-                  <li class="service__cording-list-item">
+                  <li class="service__cording-list-item service-col-3">
                     <ul>
                       <li><img src="images/400x300.png" alt=""></li>
-                      <li class="service__cording-list-desc">お持ちのデザインカンプからコーディング</li>
+                      <li class="service-list-desc">Webコンテンツなどへの文章作成</li>
                     </ul>
                   </li>
   
-                  <li class="service__cording-list-item">
+                  <li class="service__cording-list-item service-col-3">
                     <ul>
                       <li><img src="images/400x300.png" alt=""></li>
-                      <li class="service__cording-list-desc">Java ScriptやCSSを使用した動き付け</li>
+                      <li class="service-list-desc">ブログ記事の作成</li>
                     </ul>
                   </li>
   
-                  <li class="service__cording-list-item">
+                  <li class="service__cording-list-item service-col-3">
                     <ul>
                       <li><img src="images/400x300.png" alt=""></li>
-                      <li class="service__cording-list-desc">HTMLサイトのWord Pressへの変換</li>
+                      <li class="service-list-desc">SNS投稿</li>
                     </ul>
                   </li>
   
@@ -473,7 +512,7 @@
 
           <div class="swiper-containre">
 
-            <div class="swiper">
+            <div class="works-swiper swiper">
   
               <ul class="works__list swiper-wrapper">
   
@@ -672,10 +711,11 @@
     <!-- /inner -->
   </main>
 
-  <footer>
+  <footer class="footer">
     <img src="" alt="ロゴ">
     &copy コピータイトルが入る
   </footer>
+    
 
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>

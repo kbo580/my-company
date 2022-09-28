@@ -275,6 +275,92 @@ section:nth-child(even) .sec-heading{
 }
 
 /* -------------------------------------------- */
+/*  スライド関連 */
+/* -------------------------------------------- */
+/* 共通 */
+.swiper-slide {
+  overflow: hidden;
+  transition: .8s;
+}
+
+/* 矢印のがわ */
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* 矢印本体 */
+.swiper-button-prev::after,
+.swiper-button-next:after{
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
+  position: absolute;
+}
+
+/* 前への矢印 */
+.swiper-button-prev:after {
+  transform: rotate(-135deg);
+  left: 15px;
+}
+
+/* 次への矢印 */
+.swiper-button-next:after {
+  transform: rotate(45deg);
+  right: 15px;
+}
+
+/* worksでのスライダー */
+.works{
+
+  .swiper-containre{
+    position: relative;
+    padding: 0 20px;
+  }
+  
+  .works-swiper.swiper {
+    width: 100%;
+    margin-top: 40px;
+    padding-bottom: 45px;
+  }
+}
+
+/* バナーでのスライダー */
+.service{
+  .swiper-container{
+    position: relative;
+  }
+
+}
+
+@media (min-width: 765px){
+  .works{
+
+    /* スライド */
+    .swiper-slide{
+      opacity: 0.6;
+    }
+
+    /* 真ん中のスライド */
+    .swiper-slide-active{
+      opacity: 1;
+      z-index: 1;
+      transform: scale(1.3);
+    }
+  }
+  
+}
+
+/* -------------------------------------------- */
 /* mv */
 /* -------------------------------------------- */
 .mv{
@@ -319,8 +405,10 @@ section:nth-child(even) .sec-heading{
   /* サービスのリスト全体 */
   &__list{
     // border: 1px solid #000;
-    // margin-top: 40px;
     position: relative;
+    max-width: 800px;
+    margin-left: auto;
+    margin-right: auto;
   }
 
   /* サービスのリスト */
@@ -371,6 +459,12 @@ section:nth-child(even) .sec-heading{
     display: block;
     line-height: 1;
   }
+
+  /* 各サービス紹介 */
+  &-list-desc{
+    text-align: center;
+    margin-top: 16px;
+  }
 }
 
 .w{
@@ -396,17 +490,23 @@ section:nth-child(even) .sec-heading{
   display: none;
 }
 
+article{
+  border: 3px solid #fff;
+  margin-top: 40px;
+}
 
-/* サービス詳細 */
+/* サービス詳細の共通部分 */
 .service{
 
   &__detail{
     padding: 0 40px;
-    display: none;
+    // display: none;
+    border: 3px solid #000;
 
-    /* サービス詳細のリストの共通部分 */
+    /* サービス詳細のリスト */
     &-list--common{
       display: flex;
+      flex-direction: column;
       justify-content: space-between;
       border: 1px solid #000;
       margin-top: 20px;
@@ -419,6 +519,18 @@ section:nth-child(even) .sec-heading{
     }
   }
 
+  /* サービスでの3カラムのアイテム */
+  &-col-3{
+    width: 100%;
+    
+    &:not(:first-child){
+      margin-top: 20px;
+    }
+  }
+}
+
+/* サービスの各部分 */
+.service{
   /* webデザイン */
   &__webdesighn{
   
@@ -429,19 +541,19 @@ section:nth-child(even) .sec-heading{
   
     /* それぞれのリスト */
     &-list-item{
-      width: calc((100% - 40px) / 3);
+      // width: calc((100% - 40px) / 3);
+      // width: 100%;
     }
   
     /* サービス紹介 */
     &-list-desc{
-      text-align: center;
-      margin-top: 16px;
+    
     }
   }
 
   /* サイトリニューアル */
   &__renewal{
-    border: 1px solid #000;
+    // margin-top: 60px;
 
     /* それぞれのリスト */
     &-list-item{
@@ -456,11 +568,10 @@ section:nth-child(even) .sec-heading{
 
   /* コーディング代行 */
   &__cording{
-    border: 1px solid #000;
 
     /* それぞれのリスト */
     &-list-item{
-      width: calc((100% - 40px) / 3);
+      // width: calc((100% - 40px) / 3);
     }
 
     /* サービス紹介 */
@@ -534,14 +645,52 @@ section:nth-child(even) .sec-heading{
     }
   }
 
+  /* サービス詳細の共通部分 */
+  .service{
+
+    &__detail{
+      padding: 0 40px;
+
+      /* サービス詳細のリスト */
+      &-list--common{
+        flex-direction: row;
+      }
+    }
+
+    /* サービスでの3カラムのアイテム */
+    &-col-3{
+      width: calc((100% - 40px) / 3);
+      &:not(:first-child){
+        margin-top: 0px;
+      }
+    }
+  }
+
+  /* サービスの各部分 */
+  .service{
+    /* webデザイン */
+    &__webdesighn{
+    
+      /* リスト */
+      &-list{
+        
+      }
+    
+      /* それぞれのリスト */
+      &-list-item{
+       
+      }
+    }
+  }
+
+
+
+
 }
 
 /* -------------------------------------------- */
 /* works */
 /* -------------------------------------------- */
-.swiper{
-  max-width: 1080px;
-}
 .works{
 
   /* 小見出し */
@@ -655,74 +804,6 @@ section:nth-child(even) .sec-heading{
 
 }
 
-/* Swiper */
-.swiper-containre{
-  position: relative;
-  padding: 0 20px;
-}
-
-.swiper {
-  width: 100%;
-  margin-top: 40px;
-  padding-bottom: 45px;
-}
-
-/* スライド */
-.swiper-slide {
-  overflow: hidden;
-  transition: .8s;
-}
-
-/* 矢印のがわ */
-.swiper-button-prev,
-.swiper-button-next {
-  position: absolute;
-  top: 0;
-  bottom: 0;
-  margin: auto;
-  background-color: rgba(0, 0, 0, 0.3);
-  width: 40px;
-  height: 40px;
-  border-radius: 50%;
-}
-
-/* 矢印本体 */
-.swiper-button-prev::after,
-.swiper-button-next:after{
-  content: "";
-  width: 12px;
-  height: 12px;
-  border-top: 1px solid #fff;
-  border-right: 1px solid #fff;
-  position: absolute;
-}
-
-/* 前への矢印 */
-.swiper-button-prev:after {
-  transform: rotate(-135deg);
-  left: 15px;
-}
-
-/* 次への矢印 */
-.swiper-button-next:after {
-  transform: rotate(45deg);
-  right: 15px;
-}
-
-
-@media (min-width: 765px){
-  /* スライド */
-  .swiper-slide{
-    opacity: 0.6;
-  }
-  
-  /* 真ん中のスライド */
-  .swiper-slide-active{
-    opacity: 1;
-    z-index: 1;
-    transform: scale(1.3); /* スライドの大きさ調整 */
-  }
-}
 /* -------------------------------------------- */
 /* flow */
 /* -------------------------------------------- */
