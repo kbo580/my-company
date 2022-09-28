@@ -615,21 +615,73 @@ section:nth-child(even) .sec-heading{
 
 }
 
-.swiper {
-  width: 100%;
-  margin: 40px 0;
-  padding: 0 60px 45px;
+/* Swiper */
+.swiper-containre{
+  position: relative;
+  padding: 0 20px;
 }
 
+.swiper {
+  width: 100%;
+  margin-top: 40px;
+  padding-bottom: 45px;
+}
+
+/* スライド */
 .swiper-slide {
   overflow: hidden;
   transition: .8s;
 }
 
-.swiper-slide-active{
-  opacity: 1;
-  z-index: 1;
-  transform: scale(1.4); /* スライドの大きさ調整 */
+/* 矢印のがわ */
+.swiper-button-prev,
+.swiper-button-next {
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  margin: auto;
+  background-color: rgba(0, 0, 0, 0.3);
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+}
+
+/* 矢印本体 */
+.swiper-button-prev::after,
+.swiper-button-next:after{
+  content: "";
+  width: 12px;
+  height: 12px;
+  border-top: 1px solid #fff;
+  border-right: 1px solid #fff;
+  position: absolute;
+}
+
+/* 前への矢印 */
+.swiper-button-prev:after {
+  transform: rotate(-135deg);
+  left: 15px;
+}
+
+/* 次への矢印 */
+.swiper-button-next:after {
+  transform: rotate(45deg);
+  right: 15px;
+}
+
+
+@media (min-width: 765px){
+  /* スライド */
+  .swiper-slide{
+    opacity: 0.6;
+  }
+  
+  /* 真ん中のスライド */
+  .swiper-slide-active{
+    opacity: 1;
+    z-index: 1;
+    transform: scale(1.3); /* スライドの大きさ調整 */
+  }
 }
 /* -------------------------------------------- */
 /* flow */
