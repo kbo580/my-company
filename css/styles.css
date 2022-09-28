@@ -110,15 +110,64 @@ section:nth-child(even) {
      object-fit: cover;
 }
 
-/* ボタン */
-.btn {
-  display: block;
+/* ボタンの枠 */
+.btn-wrap {
   text-align: center;
   margin-top: 60px;
-  font-weight: bold;
-  font-size: 1.25rem;
 }
 
+/* ボタン */
+.btn {
+  text-align: center;
+  font-weight: bold;
+  font-size: 1rem;
+  background-color: #D20111;
+  line-height: 1.5;
+  display: inline-block;
+  padding: 1rem 4rem;
+  -webkit-transition: position 0.3s;
+  transition: position 0.3s;
+  color: #fff;
+  border-radius: 6px;
+  -webkit-box-shadow: 0px 5px #9f000c;
+          box-shadow: 0px 5px #9f000c;
+  border-radius: 100vh;
+  position: relative;
+  -webkit-transition: top 0.4s, -webkit-box-shadow 0.4s;
+  transition: top 0.4s, -webkit-box-shadow 0.4s;
+  transition: top 0.4s, box-shadow 0.4s;
+  transition: top 0.4s, box-shadow 0.4s, -webkit-box-shadow 0.4s;
+  top: 0px;
+  /* 矢印 */
+}
+.btn::before {
+  content: "";
+  width: 8px;
+  height: 8px;
+  display: block;
+  border-bottom: 2px solid #fff;
+  border-right: 2px solid #fff;
+  position: absolute;
+  top: 50%;
+  -webkit-transform: rotate(-45deg) translateY(-50%);
+          transform: rotate(-45deg) translateY(-50%);
+  right: 16px;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
+}
+
+/* ボタンhover時の動き */
+@media (hover: hover) {
+  .btn:hover {
+    top: 5px;
+    position: relative;
+    -webkit-box-shadow: none;
+            box-shadow: none;
+  }
+  .btn:hover::before {
+    right: 10px;
+  }
+}
 @media (min-width: 765px) {
   body {
     font-size: 1rem;
@@ -399,7 +448,6 @@ section:nth-child(even) {
   /* コンテンツ */
   /* リスト */
   /* 作品のタイトル*/
-  /* 作品の説明 */
 }
 .works__sub-heading {
   text-align: center;
@@ -459,10 +507,6 @@ section:nth-child(even) {
 }
 .works__title {
   font-size: 1rem;
-}
-.works__text {
-  margin-top: 20px;
-  font-size: 0.875rem;
 }
 
 /* サムネイルhover時の動き */
@@ -694,6 +738,40 @@ section:nth-child(even) {
     -webkit-animation-name: bggradientleft;
             animation-name: bggradientleft;
   }
+  /* 右に流れるアニメーション */
+  @-webkit-keyframes bggradientright {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  @keyframes bggradientright {
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  /* 左に流れるアニメーション */
+  @-webkit-keyframes bggradientleft {
+    0% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
+  @keyframes bggradientleft {
+    0% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position: 0% 50%;
+    }
+  }
   /* リスト */
   .flow__list {
     width: calc((100% - 120px) / 3);
@@ -853,35 +931,3 @@ section:nth-child(even) {
 /* -------------------------------------------- */
 /*  */
 /* -------------------------------------------- */
-@-webkit-keyframes bggradientright {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}
-@keyframes bggradientright {
-  0% {
-    background-position: 0% 50%;
-  }
-  100% {
-    background-position: 100% 50%;
-  }
-}
-@-webkit-keyframes bggradientleft {
-  0% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}
-@keyframes bggradientleft {
-  0% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position: 0% 50%;
-  }
-}

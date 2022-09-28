@@ -183,13 +183,59 @@ section:nth-child(even) .sec-heading{
   object-fit: cover;
 }
 
-/* ボタン */
-.btn{
-  display: block;
+/* ボタンの枠 */
+.btn-wrap{
   text-align: center;
   margin-top: 60px;
+}
+
+/* ボタン */
+.btn{
+  text-align: center;
   font-weight: bold;
-  font-size: rem(20);
+  font-size: rem(16);
+  background-color: #D20111;
+  line-height: 1.5;
+  display: inline-block;
+  padding: 1rem 4rem;
+  transition: position 0.3s;
+  color: #fff;
+  border-radius: 6px;
+  box-shadow: 0px 5px #9f000c;
+  border-radius: 100vh;
+  position: relative;
+  transition: top .4s , box-shadow .4s;
+  top: 0px;
+
+  /* 矢印 */
+  &::before{
+    content:"";
+    width: 8px;
+    height: 8px;
+    display: block;
+    border-bottom: 2px solid #fff;
+    border-right: 2px solid #fff;
+    position: absolute;
+    top: 50%;
+    transform: rotate(-45deg) translateY(-50%);
+    right: 16px;
+    transition: all .4s;
+  }
+}
+
+/* ボタンhover時の動き */
+@media (hover: hover) {
+  .btn{
+    &:hover{
+      top: 5px;
+      position: relative;
+      box-shadow: none;
+  
+      &::before{
+        right: 10px;
+      }
+    }
+  }
 }
 
 @media (min-width: 765px) {
@@ -566,12 +612,6 @@ section:nth-child(even) .sec-heading{
   &__title{
     font-size: rem(16);
   }
-
-  /* 作品の説明 */
-  &__text{
-    margin-top: 20px;
-    font-size: rem(14);
-  }
 }
 
 /* サムネイルhover時の動き */
@@ -794,6 +834,26 @@ section:nth-child(even) .sec-heading{
     }
   }
 
+  /* 右に流れるアニメーション */
+  @keyframes bggradientright{
+    0% {
+      background-position: 0% 50%;
+    }
+    100% {
+      background-position: 100% 50%;
+    }
+  }
+  
+  /* 左に流れるアニメーション */
+  @keyframes bggradientleft{
+    0% {
+      background-position: 100% 50%;
+    }
+    100% {
+      background-position:  0% 50%;
+    }
+  }
+
   /* リスト */
   .flow__list{
     width: calc((100% - 120px) /3);
@@ -984,22 +1044,3 @@ section:nth-child(even) .sec-heading{
 
 }
 
-@keyframes bggradientright{
-	0% {
-		background-position: 0% 50%;
-	}
-	100% {
-		background-position: 100% 50%;
-	}
-
-}
-
-@keyframes bggradientleft{
-
-  0% {
-    background-position: 100% 50%;
-  }
-  100% {
-    background-position:  0% 50%;
-  }
-}
