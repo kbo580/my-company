@@ -1,9 +1,10 @@
 const mySwiper = new Swiper('.swiper', {
   loop: true,
   effect: "card",
-  // autoplay: {
-  //   delay: 30000,
-  // },
+  speed: 1000,
+  autoplay: {
+    delay: 3000,
+  },
 
   slidesPerView: 1,
   spaceBetween: 30,
