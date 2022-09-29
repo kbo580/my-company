@@ -221,8 +221,9 @@ section:nth-child(even) {
 .swiper-button-prev,
 .swiper-button-next {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 50%;
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   margin: auto;
   background-color: rgba(0, 0, 0, 0.3);
   width: 40px;
@@ -487,11 +488,13 @@ article {
           transform: rotateY(0deg);
 }
 .service__cording {
-  /* それぞれのリスト */
   /* サービス紹介 */
 }
 .service__cording-list-desc {
-  text-align: center;
+  text-align: left;
+}
+.service__banners {
+  margin-top: 20px;
 }
 .service__banners-image {
   aspect-ratio: 6/5;

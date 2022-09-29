@@ -287,8 +287,8 @@ section:nth-child(even) .sec-heading{
 .swiper-button-prev,
 .swiper-button-next {
   position: absolute;
-  top: 0;
-  bottom: 0;
+  top: 50%;
+  transform:translateY(-50%);
   margin: auto;
   background-color: rgba(0, 0, 0, 0.3);
   width: 40px;
@@ -612,19 +612,16 @@ article{
   //------ コーディング代行 ---------
   &__cording{
 
-    /* それぞれのリスト */
-    &-list-item{
-      // width: calc((100% - 40px) / 3);
-    }
-
     /* サービス紹介 */
     &-list-desc{
-      text-align: center;
+      text-align: left;
     }
   }
 
   //--------バナー作成 ---------
   &__banners{
+    margin-top: 20px;
+
     &-image{
       aspect-ratio: 6 / 5;
       object-fit: contain;
