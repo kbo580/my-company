@@ -335,9 +335,10 @@ section:nth-child(even) .sec-heading{
 }
 
 /* バナーでのスライダー */
-.service{
-  .swiper-container{
+.banner{
+  &-swiper-container{
     position: relative;
+    padding: 0 20px;
   }
 
 }
@@ -499,7 +500,7 @@ article{
 .service{
 
   &__detail{
-    padding: 0 40px;
+    padding: 0 20px;
     // display: none;
     border: 3px solid #000;
 
@@ -605,7 +606,6 @@ article{
 
     &-image-wrap.click .back{
       transform: rotateY(0deg);
-    
     }
   }
 
@@ -614,7 +614,7 @@ article{
 
     /* サービス紹介 */
     &-list-desc{
-      text-align: left;
+      // text-align: left;
     }
   }
 
@@ -622,12 +622,57 @@ article{
   &__banners{
     margin-top: 20px;
 
+    &-item{
+      border: 1px solid rgba(0, 0, 0, 0.18);
+      background-color: #fff;
+    }
+
     &-image{
       aspect-ratio: 6 / 5;
       object-fit: contain;
     }
   }
+
+  //------写真撮影---------------
+  &__photo{
+
+    
+  }
+
+ 
+
+  //---------写真加工------------
+  &__photoshop{
+
+    &-list{
+      align-items: center;
+    }
+
+    &-list-item{
+      width: 100%;
+
+      &:not(:first-child){
+        margin-top: 20px;
+      }
+    }
+
+    &-arrow{
+      padding: 10px 0;
+      &::before{
+        content: "";
+        display: block;
+        width: 20px;
+        height: 20px;
+        border-right: 2px solid #000;
+        border-bottom: 2px solid #000;
+        transform: rotate(45deg);
+      }
+
+    }
+  
+  }
 }
+
 
 @media (min-width: 765px) {
   .service{
@@ -753,6 +798,36 @@ article{
       &-image-wrap{
         max-height: 400px;
       }
+    }
+
+    //---------写真加工------------
+    &__photoshop{
+
+      &-list{
+        align-items: center;
+      }
+
+      &-list-item{
+        width: calc((100% - 80px) / 3);
+        &:not(:first-child){
+          margin-top: 0px;
+        }
+      }
+
+      &-arrow{
+        // border: 1px solid red;
+        &::before{
+          content: "";
+          display: block;
+          width: 20px;
+          height: 20px;
+          border-right: 2px solid #000;
+          border-bottom: 2px solid #000;
+          transform: rotate(-45deg);
+        }
+
+      }
+    
     }
   }
 

@@ -268,8 +268,9 @@ section:nth-child(even) {
 }
 
 /* バナーでのスライダー */
-.service .swiper-container {
+.banner-swiper-container {
   position: relative;
+  padding: 0 20px;
 }
 
 @media (min-width: 765px) {
@@ -410,7 +411,7 @@ article {
   /* サービスでの3カラムのアイテム */
 }
 .service__detail {
-  padding: 0 40px;
+  padding: 0 20px;
   border: 3px solid #000;
   /* サービス詳細のリスト */
   /* サービス詳細の説明 */
@@ -490,16 +491,41 @@ article {
 .service__cording {
   /* サービス紹介 */
 }
-.service__cording-list-desc {
-  text-align: left;
-}
 .service__banners {
   margin-top: 20px;
+}
+.service__banners-item {
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  background-color: #fff;
 }
 .service__banners-image {
   aspect-ratio: 6/5;
   -o-object-fit: contain;
      object-fit: contain;
+}
+.service__photoshop-list {
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.service__photoshop-list-item {
+  width: 100%;
+}
+.service__photoshop-list-item:not(:first-child) {
+  margin-top: 20px;
+}
+.service__photoshop-arrow {
+  padding: 10px 0;
+}
+.service__photoshop-arrow::before {
+  content: "";
+  display: block;
+  width: 20px;
+  height: 20px;
+  border-right: 2px solid #000;
+  border-bottom: 2px solid #000;
+  -webkit-transform: rotate(45deg);
+          transform: rotate(45deg);
 }
 
 @media (min-width: 765px) {
@@ -609,6 +635,27 @@ article {
   }
   .service__renewal-image-wrap {
     max-height: 400px;
+  }
+  .service__photoshop-list {
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .service__photoshop-list-item {
+    width: calc((100% - 80px) / 3);
+  }
+  .service__photoshop-list-item:not(:first-child) {
+    margin-top: 0px;
+  }
+  .service__photoshop-arrow::before {
+    content: "";
+    display: block;
+    width: 20px;
+    height: 20px;
+    border-right: 2px solid #000;
+    border-bottom: 2px solid #000;
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
   }
 }
 /* -------------------------------------------- */
