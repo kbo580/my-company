@@ -406,7 +406,7 @@ section:nth-child(even) .sec-heading{
   &__list{
     // border: 1px solid #000;
     position: relative;
-    max-width: 800px;
+    max-width: 900px;
     margin-left: auto;
     margin-right: auto;
   }
@@ -519,6 +519,11 @@ article{
     }
   }
 
+  // サービスのサムネ
+  &_thum{
+    aspect-ratio: 16 / 9;
+  }
+
   /* サービスでの3カラムのアイテム */
   &-col-3{
     width: 100%;
@@ -531,7 +536,7 @@ article{
 
 /* サービスの各部分 */
 .service{
-  /* webデザイン */
+  //-------- webデザイン--------- 
   &__webdesighn{
   
     /* リスト */
@@ -551,22 +556,60 @@ article{
     }
   }
 
-  /* サイトリニューアル */
+  // ---------サイトリニューアル -------
   &__renewal{
-    // margin-top: 60px;
 
-    /* それぞれのリスト */
-    &-list-item{
-      width: calc((100% - 40px) / 2);
+    //画像側
+    &-left{
+      width: 100%;
+      text-align: center;
     }
 
-    /* サービス紹介 */
-    &-list-desc{
-      text-align: center;
+    //クリックの説明
+    &-attention{
+      font-size: rem(12);
+      margin-top: 8px;
+    }
+
+    // サービス紹介側
+    &-right{
+      width: 100%;
+      margin-top: 40px;
+    }
+
+    //イメージ画像のコンテナ
+    &-image-wrap{
+      max-height: 300px;
+      overflow: scroll;
+      position: relative;
+    }
+
+     //イメージ画像
+    &-image{
+      backface-visibility: hidden;
+      transition: all ease .5s;
+
+      //裏側の画像
+      &.back{
+        position: absolute;
+        top: 0;
+        left: 0;
+        transform: rotateY(180deg);
+      }
+    }
+
+    //クリックイベント用
+    &-image-wrap.click .front{
+      transform: rotateY(180deg);
+    }
+
+    &-image-wrap.click .back{
+      transform: rotateY(0deg);
+    
     }
   }
 
-  /* コーディング代行 */
+  //------ コーディング代行 ---------
   &__cording{
 
     /* それぞれのリスト */
@@ -580,10 +623,14 @@ article{
     }
   }
 
-
-
+  //--------バナー作成 ---------
+  &__banners{
+    &-image{
+      aspect-ratio: 6 / 5;
+      object-fit: contain;
+    }
+  }
 }
-
 
 @media (min-width: 765px) {
   .service{
@@ -668,7 +715,7 @@ article{
 
   /* サービスの各部分 */
   .service{
-    /* webデザイン */
+    //----------- webデザイン -------------
     &__webdesighn{
     
       /* リスト */
@@ -678,7 +725,36 @@ article{
     
       /* それぞれのリスト */
       &-list-item{
-       
+      
+      }
+    }
+    // ----------サイトリニューアル -----------
+    &__renewal{
+
+      &-container{
+        justify-content: space-between;
+        align-items: center;
+      }
+
+      //画像側
+      &-left{
+        width: 45%;
+        text-align: center;
+      }
+
+      //クリックの説明
+      &-attention{
+        font-size: rem(12);
+      }
+
+      // サービス紹介側
+      &-right{
+        width: 52%;
+      }
+
+      //イメージ画像
+      &-image-wrap{
+        max-height: 400px;
       }
     }
   }

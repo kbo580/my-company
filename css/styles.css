@@ -320,7 +320,7 @@ section:nth-child(even) {
 }
 .service__list {
   position: relative;
-  max-width: 800px;
+  max-width: 900px;
   margin-left: auto;
   margin-right: auto;
 }
@@ -432,6 +432,9 @@ article {
   max-width: 620px;
   margin: 40px auto 0;
 }
+.service_thum {
+  aspect-ratio: 16/9;
+}
 .service-col-3 {
   width: 100%;
 }
@@ -440,25 +443,48 @@ article {
 }
 
 /* サービスの各部分 */
-.service {
-  /* webデザイン */
-  /* サイトリニューアル */
-  /* コーディング代行 */
-}
 .service__webdesighn {
   /* リスト */
   /* それぞれのリスト */
   /* サービス紹介 */
 }
-.service__renewal {
-  /* それぞれのリスト */
-  /* サービス紹介 */
-}
-.service__renewal-list-item {
-  width: calc((100% - 40px) / 2);
-}
-.service__renewal-list-desc {
+.service__renewal-left {
+  width: 100%;
   text-align: center;
+}
+.service__renewal-attention {
+  font-size: 0.75rem;
+  margin-top: 8px;
+}
+.service__renewal-right {
+  width: 100%;
+  margin-top: 40px;
+}
+.service__renewal-image-wrap {
+  max-height: 300px;
+  overflow: scroll;
+  position: relative;
+}
+.service__renewal-image {
+  -webkit-backface-visibility: hidden;
+          backface-visibility: hidden;
+  -webkit-transition: all ease 0.5s;
+  transition: all ease 0.5s;
+}
+.service__renewal-image.back {
+  position: absolute;
+  top: 0;
+  left: 0;
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+.service__renewal-image-wrap.click .front {
+  -webkit-transform: rotateY(180deg);
+          transform: rotateY(180deg);
+}
+.service__renewal-image-wrap.click .back {
+  -webkit-transform: rotateY(0deg);
+          transform: rotateY(0deg);
 }
 .service__cording {
   /* それぞれのリスト */
@@ -466,6 +492,11 @@ article {
 }
 .service__cording-list-desc {
   text-align: center;
+}
+.service__banners-image {
+  aspect-ratio: 6/5;
+  -o-object-fit: contain;
+     object-fit: contain;
 }
 
 @media (min-width: 765px) {
@@ -551,12 +582,30 @@ article {
     margin-top: 0px;
   }
   /* サービスの各部分 */
-  .service {
-    /* webデザイン */
-  }
   .service__webdesighn {
     /* リスト */
     /* それぞれのリスト */
+  }
+  .service__renewal-container {
+    -webkit-box-pack: justify;
+        -ms-flex-pack: justify;
+            justify-content: space-between;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+  }
+  .service__renewal-left {
+    width: 45%;
+    text-align: center;
+  }
+  .service__renewal-attention {
+    font-size: 0.75rem;
+  }
+  .service__renewal-right {
+    width: 52%;
+  }
+  .service__renewal-image-wrap {
+    max-height: 400px;
   }
 }
 /* -------------------------------------------- */

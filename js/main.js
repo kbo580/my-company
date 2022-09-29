@@ -29,7 +29,10 @@ $(function(){
   });
 
 
-
+  //サービスのサイトリニューアルのイメージ画像
+  $(".service__renewal-image-wrap").click(function(){
+    $(this).toggleClass('click')
+  });
 
 
 
