@@ -4,6 +4,7 @@
           box-sizing: border-box;
 }
 
+/* mixin */
 body, h1, h2, h3, h4, h5, p, ul, li, ol, dl, dt, dd, figure, input, textarea {
   margin: 0;
   padding: 0;
@@ -142,15 +143,15 @@ section:nth-child(even) {
 }
 .btn::before {
   content: "";
-  width: 8px;
-  height: 8px;
-  display: block;
-  border-bottom: 2px solid #fff;
-  border-right: 2px solid #fff;
   position: absolute;
+  width: 0;
+  height: 0;
+  border: solid 6px transparent;
+  display: block;
+  border-left: solid 8px #ffffff;
   top: 50%;
-  -webkit-transform: rotate(-45deg) translateY(-50%);
-          transform: rotate(-45deg) translateY(-50%);
+  -webkit-transform: translateY(-50%);
+          transform: translateY(-50%);
   right: 16px;
   -webkit-transition: all 0.4s;
   transition: all 0.4s;
@@ -311,15 +312,6 @@ section:nth-child(even) {
 /* -------------------------------------------- */
 /* service */
 /* -------------------------------------------- */
-.service {
-  /* サービスのリスト全体 */
-  /* サービスのリスト */
-  /* サービスのタイトル関連 */
-  /* サービスのタイトル */
-  /* アコーディオンのクリック */
-  /* サービスのタイトルの数字 */
-  /* 各サービス紹介 */
-}
 .service__list {
   position: relative;
   max-width: 900px;
@@ -328,7 +320,6 @@ section:nth-child(even) {
 }
 .service__list-item {
   position: relative;
-  /* 先頭以外 */
 }
 .service__list-item:not(:first-child) {
   margin-top: 40px;
@@ -343,20 +334,20 @@ section:nth-child(even) {
   -webkit-box-align: end;
       -ms-flex-align: end;
           align-items: flex-end;
+  cursor: pointer;
+  -webkit-transition: all 0.4s;
+  transition: all 0.4s;
 }
 .service__title {
   font-size: 1.75rem;
   line-height: 1.5;
 }
-.service .a {
-  font-size: 24px;
-  border: 2px solid #000;
-  background-color: #fff;
+.service .tri-btn {
+  position: relative;
   width: 30px;
   height: 30px;
+  background: red;
   border-radius: 50%;
-  cursor: pointer;
-  position: relative;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -366,7 +357,19 @@ section:nth-child(even) {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  line-height: 1;
+}
+.service .tri-btn::after {
+  position: absolute;
+  width: 0;
+  height: 0;
+  border: solid 6px transparent;
+  content: "";
+  top: 40%;
+  border-top: solid 8px #ffffff;
+}
+.service .tri-btn.clicked {
+  -webkit-transform: rotate(180deg);
+          transform: rotate(180deg);
 }
 .service__title--num {
   font-size: 3.5rem;
@@ -374,47 +377,29 @@ section:nth-child(even) {
   line-height: 1;
 }
 .service-list-desc {
-  text-align: center;
-  margin-top: 16px;
+  display: table;
+  margin: 16px auto;
+  text-align: left;
 }
 
-.w {
-  width: 50%;
-  height: 100px;
-  border-radius: 50%;
-  position: absolute;
-  top: 50%;
-  right: 0%;
-  -webkit-transform: translateY(-50%);
-          transform: translateY(-50%);
-  z-index: -1;
+@media (hover: hover) {
+  .service__title-wrap:hover {
+    background-color: #fff;
+  }
 }
-
-.demo {
-  width: 100%;
-  height: 100%;
-  -o-object-fit: cover;
-     object-fit: cover;
-}
-
-.service-bg-date {
-  display: none;
-}
-
-article {
-  border: 3px solid #fff;
+article:not(:first-child) {
   margin-top: 40px;
 }
 
-/* サービス詳細の共通部分 */
-.service {
-  /* サービスでの3カラムのアイテム */
+.service__title-wrap.bgChange {
+  background-color: #fff;
 }
+
+/* サービス詳細の共通部分 */
 .service__detail {
-  padding: 0 20px;
-  border: 3px solid #000;
-  /* サービス詳細のリスト */
-  /* サービス詳細の説明 */
+  padding: 20px;
+  display: none;
+  background-color: #fff;
 }
 .service__detail-list--common {
   display: -webkit-box;
@@ -427,8 +412,10 @@ article {
   -webkit-box-pack: justify;
       -ms-flex-pack: justify;
           justify-content: space-between;
-  border: 1px solid #000;
-  margin-top: 20px;
+  -ms-flex-wrap: wrap;
+      flex-wrap: wrap;
+  margin-top: -20px;
+  padding-top: 20px;
 }
 .service__detail-desc {
   max-width: 620px;
@@ -439,19 +426,12 @@ article {
 }
 .service-col-3 {
   width: 100%;
-}
-.service-col-3:not(:first-child) {
   margin-top: 20px;
 }
 
-/* サービスの各部分 */
-.service__webdesighn {
-  /* リスト */
-  /* それぞれのリスト */
-  /* サービス紹介 */
-}
 .service__renewal-left {
   width: 100%;
+  margin-top: 20px;
   text-align: center;
 }
 .service__renewal-attention {
@@ -488,11 +468,22 @@ article {
   -webkit-transform: rotateY(0deg);
           transform: rotateY(0deg);
 }
-.service__cording {
-  /* サービス紹介 */
+.service .label {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: 1;
+  color: #fff;
+  background-image: -webkit-gradient(linear, left bottom, left top, from(#ebbba7), to(#cfc7f8));
+  background-image: linear-gradient(to top, #ebbba7 0%, #cfc7f8 100%);
+  display: block;
+  padding: 4px 1rem;
+  width: 90px;
+  -webkit-box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
+          box-shadow: 5px 5px 5px rgba(0, 0, 0, 0.2);
 }
 .service__banners {
-  margin-top: 20px;
+  margin-top: 40px;
 }
 .service__banners-item {
   border: 1px solid rgba(0, 0, 0, 0.18);
@@ -511,91 +502,57 @@ article {
 .service__photoshop-list-item {
   width: 100%;
 }
-.service__photoshop-list-item:not(:first-child) {
-  margin-top: 20px;
-}
 .service__photoshop-arrow {
-  padding: 10px 0;
+  padding: 8px 0;
 }
 .service__photoshop-arrow::before {
   content: "";
   display: block;
-  width: 20px;
-  height: 20px;
+  width: 10px;
+  height: 10px;
   border-right: 2px solid #000;
   border-bottom: 2px solid #000;
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
 }
 
+@media (min-width: 576px) {
+  .service__detail {
+    padding: 40px;
+  }
+  .service__detail-list--common {
+    -webkit-box-orient: horizontal;
+    -webkit-box-direction: normal;
+        -ms-flex-direction: row;
+            flex-direction: row;
+  }
+  .service-col-3 {
+    width: calc((100% - 20px) / 2);
+  }
+  .service__photoshop-list-item {
+    width: calc((100% - 80px) / 3);
+  }
+  .service__photoshop-arrow::before {
+    -webkit-transform: rotate(-45deg);
+            transform: rotate(-45deg);
+  }
+}
 @media (min-width: 765px) {
   .service {
-    /* サービスのリスト全体 */
-    /* サービスのリスト */
     /* サービスのタイトル関連 */
-    /* サービスのタイトル */
-    /* アコーディオンのクリック */
     /* サービスのタイトルの数字 */
-  }
-  .service__list {
-    position: relative;
-  }
-  .service__list-item {
-    position: relative;
-    /* 先頭以外 */
-  }
-  .service__list-item:not(:first-child) {
-    margin-top: 40px;
-  }
-  .service__title-wrap {
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-pack: justify;
-        -ms-flex-pack: justify;
-            justify-content: space-between;
-    -webkit-box-align: end;
-        -ms-flex-align: end;
-            align-items: flex-end;
   }
   .service__title-wrap br {
     display: none;
   }
-  .service__title {
-    font-size: 1.75rem;
-    line-height: 1.5;
-  }
-  .service .a {
-    font-size: 24px;
-    border: 2px solid #000;
-    background-color: #fff;
-    width: 30px;
-    height: 30px;
-    border-radius: 50%;
-    cursor: pointer;
-    position: relative;
-    display: -webkit-box;
-    display: -ms-flexbox;
-    display: flex;
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-    -webkit-box-pack: center;
-        -ms-flex-pack: center;
-            justify-content: center;
-    line-height: 1;
-  }
   .service__title--num {
-    font-size: 3.5rem;
     display: inline-block;
-    line-height: 1;
   }
   /* サービス詳細の共通部分 */
   .service {
     /* サービスでの3カラムのアイテム */
   }
   .service__detail {
-    padding: 0 40px;
     /* サービス詳細のリスト */
   }
   .service__detail-list--common {
@@ -607,14 +564,7 @@ article {
   .service-col-3 {
     width: calc((100% - 40px) / 3);
   }
-  .service-col-3:not(:first-child) {
-    margin-top: 0px;
-  }
   /* サービスの各部分 */
-  .service__webdesighn {
-    /* リスト */
-    /* それぞれのリスト */
-  }
   .service__renewal-container {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
@@ -625,10 +575,9 @@ article {
   }
   .service__renewal-left {
     width: 45%;
-    text-align: center;
   }
   .service__renewal-attention {
-    font-size: 0.75rem;
+    font-size: 0.875rem;
   }
   .service__renewal-right {
     width: 52%;
@@ -636,26 +585,12 @@ article {
   .service__renewal-image-wrap {
     max-height: 400px;
   }
-  .service__photoshop-list {
-    -webkit-box-align: center;
-        -ms-flex-align: center;
-            align-items: center;
-  }
   .service__photoshop-list-item {
     width: calc((100% - 80px) / 3);
   }
-  .service__photoshop-list-item:not(:first-child) {
-    margin-top: 0px;
-  }
   .service__photoshop-arrow::before {
-    content: "";
-    display: block;
     width: 20px;
     height: 20px;
-    border-right: 2px solid #000;
-    border-bottom: 2px solid #000;
-    -webkit-transform: rotate(-45deg);
-            transform: rotate(-45deg);
   }
 }
 /* -------------------------------------------- */
