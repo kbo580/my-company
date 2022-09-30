@@ -36,8 +36,8 @@ var swiper = new Swiper('.banner-swiper', {
   slidesPerView: 1,
   spaceBetween: 30,
   breakpoints: {
-    // 552px以上の場合
-    552: {
+    // 576px以上の場合
+    576: {
       slidesPerView: 2,
       spaceBetween: 30,
     },
