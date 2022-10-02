@@ -51,14 +51,12 @@ section {
   padding: 60px 0 100px;
 }
 section:nth-child(even) {
-  background-color: lightseagreen;
   margin-left: calc(50% - 50vw);
   margin-right: calc(50% - 50vw);
   padding-left: calc(50vw - 50%);
   padding-right: calc(50vw - 50%);
 }
 
-/* セクションの見出しとリード文の部分 */
 .contents-head {
   display: -webkit-box;
   display: -ms-flexbox;
@@ -67,35 +65,44 @@ section:nth-child(even) {
   -webkit-box-direction: normal;
       -ms-flex-direction: column;
           flex-direction: column;
-  border: 1px solid #000;
   position: relative;
 }
-/* 見出しのコンテナ */
-/* 見出しの共通部分 */
+
 .heading-common {
   font-family: "Corporate-Logo-Bold-ver2";
   letter-spacing: 0.15em;
   line-height: 1;
 }
 
-/* セクションの見出し */
 .sec-heading {
   font-size: 4.375rem;
+  font-size: min(max(70px, 4.375rem + (1vw - 3.75px) * 5.5249), 120px);
   width: 100%;
+  display: inline-block;
+  position: relative;
+  padding-left: 40px;
+}
+.sec-heading::before {
+  content: "";
+  position: absolute;
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  display: block;
+  background-color: #ccc;
+  left: 0;
+  bottom: 0;
+  z-index: -1;
 }
 
-/* 偶数番目のセクションの見出しを右揃え */
-/* section内のコンテンツの共通部分 */
 .contents-body {
   margin-top: 40px;
 }
 
-/* h3クラスの見出し */
 .sub-heading {
   font-size: 1.5rem;
 }
 
-/* セクションのリード文 */
 .lead {
   line-height: 1.5em;
   letter-spacing: 0.15em;
@@ -103,7 +110,6 @@ section:nth-child(even) {
   margin-top: 40px;
 }
 
-/* サムネイル */
 .thum {
   width: 100%;
   height: 100%;
@@ -111,13 +117,11 @@ section:nth-child(even) {
      object-fit: cover;
 }
 
-/* ボタンの枠 */
 .btn-wrap {
   text-align: center;
   margin-top: 60px;
 }
 
-/* ボタン */
 .btn {
   text-align: center;
   font-weight: bold;
@@ -139,7 +143,6 @@ section:nth-child(even) {
   transition: top 0.4s, box-shadow 0.4s;
   transition: top 0.4s, box-shadow 0.4s, -webkit-box-shadow 0.4s;
   top: 0px;
-  /* 矢印 */
 }
 .btn::before {
   content: "";
@@ -157,7 +160,6 @@ section:nth-child(even) {
   transition: all 0.4s;
 }
 
-/* ボタンhover時の動き */
 @media (hover: hover) {
   .btn:hover {
     top: 5px;
@@ -173,7 +175,6 @@ section:nth-child(even) {
   body {
     font-size: 1rem;
   }
-  /* セクションの見出しとリード文のコンテナ */
   .contents-head {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: normal;
@@ -186,24 +187,23 @@ section:nth-child(even) {
         -ms-flex-pack: justify;
             justify-content: space-between;
   }
-  /* 偶数番目のセクションの見出しとリード文のコンテナ */
   section:nth-child(even) .contents-head {
     -webkit-box-orient: horizontal;
     -webkit-box-direction: reverse;
         -ms-flex-direction: row-reverse;
             flex-direction: row-reverse;
   }
-  /* セクションの見出し */
   .sec-heading {
-    font-size: 7.5rem;
-    padding-bottom: 0px;
+    padding-left: 90px;
   }
-  /* セクションのリード文 */
+  .sec-heading::before {
+    width: 250px;
+    height: 250px;
+  }
   .lead {
     width: calc((100% - 80px) / 2);
     margin-top: 0;
   }
-  /* section内のコンテンツの共通部分 */
   .contents-body {
     margin-top: 60px;
   }
@@ -211,14 +211,12 @@ section:nth-child(even) {
 /* -------------------------------------------- */
 /*  スライド関連 */
 /* -------------------------------------------- */
-/* 共通 */
 .swiper-slide {
   overflow: hidden;
   -webkit-transition: 0.8s;
   transition: 0.8s;
 }
 
-/* 矢印のがわ */
 .swiper-button-prev,
 .swiper-button-next {
   position: absolute;
@@ -232,7 +230,6 @@ section:nth-child(even) {
   border-radius: 50%;
 }
 
-/* 矢印本体 */
 .swiper-button-prev::after,
 .swiper-button-next:after {
   content: "";
@@ -243,21 +240,18 @@ section:nth-child(even) {
   position: absolute;
 }
 
-/* 前への矢印 */
 .swiper-button-prev:after {
   -webkit-transform: rotate(-135deg);
           transform: rotate(-135deg);
   left: 15px;
 }
 
-/* 次への矢印 */
 .swiper-button-next:after {
   -webkit-transform: rotate(45deg);
           transform: rotate(45deg);
   right: 15px;
 }
 
-/* worksでのスライダー */
 .works .swiper-containre {
   position: relative;
   padding: 0 20px;
@@ -268,17 +262,12 @@ section:nth-child(even) {
   padding-bottom: 45px;
 }
 
-/* バナーでのスライダー */
 .banner-swiper-container {
   position: relative;
   padding: 0 20px;
 }
 
 @media (min-width: 765px) {
-  .works {
-    /* スライド */
-    /* 真ん中のスライド */
-  }
   .works .swiper-slide {
     opacity: 0.6;
   }
@@ -293,10 +282,10 @@ section:nth-child(even) {
 /* mv */
 /* -------------------------------------------- */
 .mv {
-  background: #ddd;
+  background: url(../images/nagoya-1.jpg) top center/cover;
   height: 80vh;
-  -webkit-clip-path: ellipse(80% 100% at 50% 0);
-          clip-path: ellipse(80% 100% at 50% 0);
+  -webkit-clip-path: ellipse(95% 100% at 50% 0);
+          clip-path: ellipse(95% 100% at 50% 0);
 }
 
 /* -------------------------------------------- */
@@ -307,8 +296,39 @@ section:nth-child(even) {
 }
 
 /* -------------------------------------------- */
-/*  */
+/* nav  */
 /* -------------------------------------------- */
+.nav {
+  margin: 80px auto;
+  max-width: 800px;
+}
+.nav img {
+  width: 60px;
+  height: 60px;
+}
+.nav__list {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+.nav__list-link {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+.nav__list-text {
+  display: block;
+  text-align: center;
+  margin-top: 8px;
+}
+
 /* -------------------------------------------- */
 /* service */
 /* -------------------------------------------- */
@@ -538,22 +558,11 @@ article:not(:first-child) {
   }
 }
 @media (min-width: 765px) {
-  .service {
-    /* サービスのタイトル関連 */
-    /* サービスのタイトルの数字 */
-  }
   .service__title-wrap br {
     display: none;
   }
   .service__title--num {
     display: inline-block;
-  }
-  /* サービス詳細の共通部分 */
-  .service {
-    /* サービスでの3カラムのアイテム */
-  }
-  .service__detail {
-    /* サービス詳細のリスト */
   }
   .service__detail-list--common {
     -webkit-box-orient: horizontal;
@@ -564,7 +573,6 @@ article:not(:first-child) {
   .service-col-3 {
     width: calc((100% - 40px) / 3);
   }
-  /* サービスの各部分 */
   .service__renewal-container {
     -webkit-box-pack: justify;
         -ms-flex-pack: justify;
@@ -1008,9 +1016,38 @@ article:not(:first-child) {
             order: 2;
   }
 }
+@media (hover: hover) {
+  .blog__list-image-wrapper {
+    -webkit-transition: all 0.4s;
+    transition: all 0.4s;
+  }
+  .blog__list-image-wrapper:hover {
+    opacity: 0.7;
+  }
+}
 /* -------------------------------------------- */
-/*  */
+/* footer */
 /* -------------------------------------------- */
+.footer {
+  background-color: #ddd;
+}
+.footer__wrap {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+.footer__copy {
+  text-align: center;
+  font-size: 0.75rem;
+  padding: 20px 0;
+}
+
 /* -------------------------------------------- */
 /*  */
 /* -------------------------------------------- */

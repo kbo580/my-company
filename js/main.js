@@ -32,6 +32,25 @@ $(function(){
   //------------------アコーディオンここまで------------------
 
 
+  //------------------スクロールメニューここから------------------
+  $('#headerNav .nav__list-link').on('click', function(){
+    var id =$(this).attr('href');
+    var pos = $(id).offset().top; 
+    $('html, body').animate({'scrollTop': pos}, 300);
+  });
+  
+  //topへ戻る
+  $('.top').on('click', function() {
+    $('body, html').animate({ scrollTop: 0 }, 300);
+    return false;
+  });
+
+
+
+
+  //------------------スクロールメニューここまで------------------
+
+
   //
   $(".service__title-wrap").hover(function(){
     // var src= $(this).find(".service-bg-date").value("src");
